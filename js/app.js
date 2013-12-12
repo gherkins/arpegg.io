@@ -30,24 +30,31 @@ $(function () {
             notes.push(this.get('notes'));
         });
 
-        combos = ferret.getCombinations();
+        console.log(notes);
 
     });
-
 
     $('button.add-chord').on('click', function () {
         chords.add(new Chord());
     });
 
-//    fretboard.set('activeFrets', {
-//        4: 4,
-//        5: 10
-//    });
-//
-//    fretboard.set('activeRoots', {
-//        4: 4,
-//        5: 8
-//    });
+//    fretboard.set('activeFrets', [
+//        {
+//            string: 6,
+//            fret: 5,
+//            text: 'b3'
+//        },
+//        {
+//            string: 6,
+//            fret: 8,
+//            text: '5'
+//        },
+//        {
+//            string: 6,
+//            fret: 10,
+//            text: 'b7'
+//        }
+//    ]);
 
 
 });

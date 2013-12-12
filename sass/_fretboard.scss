@@ -40,6 +40,10 @@
     background: #fee9b4;
     position: relative;
 
+    &.focus {
+      background: lighten(#e67e22, 20%) !important;
+    }
+
     span {
       position: relative;
       z-index: 1;
@@ -49,21 +53,21 @@
       display: inline-block;
       @include border-radius(9px);
       font-size: 10px;
-      line-height: 20px;
+      line-height: 18px;
       text-align: center;
       color: #fff;
       z-index: 20;
 
-      .lowlight {
+      &.lowlight {
         background: rgba(231, 76, 60, 0.3);
       }
 
-      .highlight {
+      &.highlight {
         background: #e67e22;
         @include box-shadow(0px 0px 5px 1px rgba(255, 255, 190, .75))
       }
 
-      .root {
+      &.root {
         background: #e74c3c;
       }
 

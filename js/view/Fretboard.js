@@ -1,44 +1,62 @@
 var FretboardView = Backbone.View.extend({
 
+    events: {
+        "change .focus": "setFocus"
+    },
+
     initialize: function () {
         this.render();
-        this.listenTo(this.model, "change", this.showDots);
+        this.listenTo(this.model, "change:activeFrets", this.showDots);
     },
 
     render: function () {
         var tpl = $("#fretboard-template").html();
         this.$el.html(Handlebars.compile(tpl));
         this.showDots();
+        this.setFocus();
     },
 
     showDots: function () {
-
         var self = this;
         this.$el.find('.fret span').fadeOut('fast');
 
-        $.each(this.model.get('activeFrets'), function (string, fret) {
-            self.showDot(string, fret, '');
+        $.each(this.model.get('activeFrets'), function () {
+            self.showDot(this, '');
         });
-
-        $.each(this.model.get('activeRoots'), function (string, fret) {
-            self.showDot(string, fret, 'root');
-        });
-
     },
 
-    showDot: function (string, fret, cssclass) {
+    showDot: function (fret) {
 
         var span = $('<span></span>')
+            .text(fret.text)
             .addClass('highlight')
-            .addClass(cssclass);
+            .addClass(fret.cssclass);
 
         var fret = this.$el
             .find('.fret')
-            .filter('[data-string="' + string + '"]')
-            .filter('[data-fret="' + fret + '"]');
+            .filter('[data-string="' + fret.string + '"]')
+            .filter('[data-fret="' + fret.fret + '"]');
 
         fret.find('span').remove();
         fret.append(span);
+
+    },
+
+    setFocus: function (e) {
+
+        var focus = {
+            string: this.$el.find('.focus[data-focus="string"]').val(),
+            fret: this.$el.find('.focus[data-focus="fret"]').val()
+        }
+
+        this.model.set('focus', focus);
+
+        this.$el
+            .find('.fret')
+            .removeClass('focus')
+            .filter('[data-string="' + focus.string + '"]')
+            .filter('[data-fret="' + focus.fret + '"]')
+            .addClass('focus');
 
     }
 
