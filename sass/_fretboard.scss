@@ -1,7 +1,7 @@
 .fretboard {
   margin-top: 20px;
 
-  & .string {
+  .string {
     width: 78%;
     clear: both;
     position: relative;
@@ -15,14 +15,14 @@
       border-right: 32px solid #7f8c8d;
       z-index: 10;
 
-      &.string6 {
+      .string6 {
         border-bottom: 4px solid #7f8c8d;
       }
-      &.string5,
-      &.string4 {
+      .string5,
+      .string4 {
         border-bottom: 3px solid #7f8c8d;
       }
-      &.string1 {
+      .string1 {
         border-bottom: 1px solid #7f8c8d;
       }
 
@@ -30,7 +30,7 @@
 
   }
 
-  & .fret {
+  .fret {
     float: left;
     width: 5%;
     border-right: 2px solid #000;
@@ -40,7 +40,7 @@
     background: #fee9b4;
     position: relative;
 
-    & span {
+    span {
       position: relative;
       z-index: 1;
       margin-top: 1px;
@@ -54,16 +54,16 @@
       color: #fff;
       z-index: 20;
 
-      &.lowlight {
+      .lowlight {
         background: rgba(231, 76, 60, 0.3);
       }
 
-      &.highlight {
+      .highlight {
         background: #e67e22;
         @include box-shadow(0px 0px 5px 1px rgba(255, 255, 190, .75))
       }
 
-      &.root {
+      .root {
         background: #e74c3c;
       }
 

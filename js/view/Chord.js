@@ -5,7 +5,7 @@ var ChordView = Backbone.View.extend({
     className: "chord",
 
     events: {
-        "change input, select": "updateModel",
+        "change input,select": "updateModel",
         "click button.remove": "kill"
     },
 
@@ -28,14 +28,15 @@ var ChordView = Backbone.View.extend({
                 id: this.id
             }))
             .appendTo(this.container);
+
+        this.updateModel();
     },
 
     /**
      * update the chord
      * model on form change
-     * @param event
      */
-    updateModel: function (event) {
+    updateModel: function () {
         //set key
         this.model.set('key', this.$el.find('#key').val());
         //and intervals

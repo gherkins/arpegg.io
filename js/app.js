@@ -21,6 +21,20 @@ $(function () {
         });
     });
 
+    chords.on('change', function (model) {
+        var notes = [];
+        $.each(chords.models, function () {
+            if (0 === this.get('notes').length) {
+                return true;
+            }
+            notes.push(this.get('notes'));
+        });
+
+        combos = ferret.getCombinations();
+
+    });
+
+
     $('button.add-chord').on('click', function () {
         chords.add(new Chord());
     });
