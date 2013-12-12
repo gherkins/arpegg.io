@@ -57,6 +57,9 @@ $(function () {
         })
         .trigger('click');
 
+    /**
+     * focus change
+     */
     fretboard.model.on('change:focus', function () {
         $('.chords .chord.active .select').click();
     });
