@@ -20,9 +20,7 @@ body { font-family: 'Lato', sans-serif; font-size: 15px; }
 
 h1 { font-size: 24px; }
 
-body { padding: 10px; }
-
-button.show { margin-top: 20px; font-size: 18px; height: 40px; width: 435px; }
+.chords label { font-size: 12px; }
 
 .fretboard { margin-top: 20px; }
 .fretboard .string { width: 78%; clear: both; position: relative; }
@@ -39,8 +37,19 @@ button.show { margin-top: 20px; font-size: 18px; height: 40px; width: 435px; }
 .fretboard .fret[data-fret="3"][data-string="3"]:after, .fretboard .fret[data-fret="5"][data-string="3"]:after, .fretboard .fret[data-fret="7"][data-string="3"]:after, .fretboard .fret[data-fret="9"][data-string="3"]:after, .fretboard .fret[data-fret="12"][data-string="1"]:after, .fretboard .fret[data-fret="12"][data-string="4"]:after, .fretboard .fret[data-fret="15"][data-string="3"]:after, .fretboard .fret[data-fret="17"][data-string="3"]:after, .fretboard .fret[data-fret="19"][data-string="3"]:after { content: ""; display: block; position: absolute; left: 50%; top: 1px; height: 18px; width: 18px; margin: 10px -10px; display: inline-block; -webkit-border-radius: 9px; -moz-border-radius: 9px; -ms-border-radius: 9px; -o-border-radius: 9px; border-radius: 9px; background: rgba(0, 0, 0, 0.1); z-index: 1; }
 .fretboard .fret[data-fret="12"][data-string="1"]:after, .fretboard .fret[data-fret="12"][data-string="4"]:after { top: 10px; }
 
+.chords { margin-top: 20px; }
+.chords .chord { float: left; margin-right: 20px; }
+
+body { padding: 10px; }
+
+button.show { margin-top: 20px; font-size: 18px; height: 40px; width: 435px; }
+
 .combos { margin-top: 20px; }
 .combos li { display: inline-block; margin-right: 5px; margin-bottom: 40px; }
 .combos li button { border: none; width: 30px; height: 30px; padding: 0; outline: none; margin: 0; background: #bdc3c7; }
 .combos li button:hover { cursor: pointer; }
 .combos li button.active { background: #3498db; }
+
+.actions { margin-top: 20px; }
+
+.clear { clear: both; }

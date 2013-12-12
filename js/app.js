@@ -13,22 +13,27 @@ $(function () {
         model: Chord
     });
 
-    fretboard.set('activeFrets', {
-        4: 4,
-        5: 10
-    });
-
-    fretboard.set('activeRoots', {
-        4: 4,
-        5: 8
-    });
-
-    setTimeout(function () {
-        fretboard.set('activeRoots', {
-            4: 6,
-            5: 9
+    chords.on('add', function (chord) {
+        new ChordView({
+            model: chord,
+            container: $('.chords'),
+            id: chords.length
         });
-    }, 1000);
+    });
+
+    $('button.add-chord').on('click', function () {
+        chords.add(new Chord());
+    });
+
+//    fretboard.set('activeFrets', {
+//        4: 4,
+//        5: 10
+//    });
+//
+//    fretboard.set('activeRoots', {
+//        4: 4,
+//        5: 8
+//    });
 
 
 });

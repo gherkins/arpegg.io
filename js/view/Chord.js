@@ -1,20 +1,58 @@
 var ChordView = Backbone.View.extend({
 
-    tagName: "li",
+    tagName: "div",
 
-    className: "document-row",
+    className: "chord",
 
     events: {
-//        "click .icon":          "open",
-//        "click .button.edit":   "openEditDialog",
-//        "click .button.delete": "destroy"
+        "change input, select": "updateModel",
+        "click button.remove": "kill"
     },
 
-    initialize: function() {
-        this.listenTo(this.model, "change", this.render);
+    initialize: function (options) {
+        this.container = options.container;
+        this.id = options.id; //dom id for labels
+        this.render();
     },
 
-    render: function() {
+    /**
+     * render template
+     */
+    render: function () {
+        var tpl = $("#chord-template").html();
+
+        this.$el
+            .html(Handlebars.compile(tpl)({
+                notes: MUSIC.notes,
+                intervals: MUSIC.intervals,
+                id: this.id
+            }))
+            .appendTo(this.container);
+    },
+
+    /**
+     * update the chord
+     * model on form change
+     * @param event
+     */
+    updateModel: function (event) {
+        //set key
+        this.model.set('key', this.$el.find('#key').val());
+        //and intervals
+        var intervals = [];
+        $.each(this.$el.find('.interval:checked'), function () {
+            intervals.push($(this).val());
+        });
+        this.model.set('intervals', intervals);
+    },
+
+    /**
+     * destroy model
+     * remove view
+     */
+    kill: function () {
+        this.model.destroy();
+        this.remove();
     }
 
 });

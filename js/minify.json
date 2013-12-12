@@ -6,6 +6,9 @@
         "vendor/handlebars-v1.1.2.js",
         "vendor/backbone.js",
 
+        "vendor/music.js",
+
+
         "handlebars.helper.js",
 
         "Ferret.js",
