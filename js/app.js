@@ -29,4 +29,8 @@ $(function () {
         chords.add(new Chord());
     });
 
+    fretboard.model.on('change:focus', function () {
+        $('.chords .chord.active .select').click();
+    });
+
 });

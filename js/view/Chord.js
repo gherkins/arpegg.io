@@ -75,6 +75,7 @@ var ChordView = Backbone.View.extend({
             intervals.push($(this).val());
         });
         this.model.set('intervals', intervals);
+        this.select();
     },
 
     /**

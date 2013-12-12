@@ -7,7 +7,7 @@ var FretboardView = Backbone.View.extend({
      * event bindings
      */
     events: {
-        "change .focus": "setFocus"
+        "mouseup .focus": "setFocus"
     },
 
 
