@@ -6,8 +6,6 @@ $(function () {
         el: $('.fretboard')
     });
 
-    var ferret = new Ferret();
-
     var chords = new Backbone.Collection([], {
         model: Chord
     });
@@ -30,24 +28,5 @@ $(function () {
     $('button.add-chord').on('click', function () {
         chords.add(new Chord());
     });
-
-//    fretboard.set('activeFrets', [
-//        {
-//            string: 6,
-//            fret: 5,
-//            text: 'b3'
-//        },
-//        {
-//            string: 6,
-//            fret: 8,
-//            text: '5'
-//        },
-//        {
-//            string: 6,
-//            fret: 10,
-//            text: 'b7'
-//        }
-//    ]);
-
 
 });

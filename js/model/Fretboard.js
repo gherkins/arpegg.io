@@ -89,6 +89,14 @@ var Fretboard = Backbone.Model.extend({
 
         return this.get('noteNames')[index];
 
+    },
+
+    getPathAvgFret: function (path) {
+        var fret = 0;
+        $.each(path, function () {
+            fret += this.fret;
+        });
+        return fret / path.length;
     }
 
 });

@@ -58,8 +58,8 @@ var FretboardView = Backbone.View.extend({
     setFocus: function (e) {
 
         var focus = {
-            string: this.$el.find('.focus[data-focus="string"]').val(),
-            fret: this.$el.find('.focus[data-focus="fret"]').val()
+//            string: this.$el.find('.focus[data-focus="string"]').val(),
+            fret: parseInt(this.$el.find('.focus[data-focus="fret"]').val())
         }
 
         this.model.set('focus', focus);
@@ -67,7 +67,7 @@ var FretboardView = Backbone.View.extend({
         this.$el
             .find('.fret')
             .removeClass('focus')
-            .filter('[data-string="' + focus.string + '"]')
+//            .filter('[data-string="' + focus.string + '"]')
             .filter('[data-fret="' + focus.fret + '"]')
             .addClass('focus');
 
@@ -84,6 +84,7 @@ var FretboardView = Backbone.View.extend({
 
         var self = this;
 
+        //draw paths for all requested notes
         $(notes).each(function (noteIndex, note) {
 
             note = self.model.simpleLatin(note);
@@ -127,10 +128,13 @@ var FretboardView = Backbone.View.extend({
 
         combos.sort(function (a, b) {
 
-            if (a[0].fret > b[0].fret) {
+            a = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(a));
+            b = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(b));
+
+            if (a < b) {
                 return 1;
             }
-            if (a[0].fret < b[0].fret) {
+            if (a > b) {
                 return -1;
             }
             return 0;

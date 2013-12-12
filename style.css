@@ -29,7 +29,7 @@ h1 { font-size: 24px; }
 .fretboard .string > span.bit .string5, .fretboard .string > span.bit .string4 { border-bottom: 3px solid #7f8c8d; }
 .fretboard .string > span.bit .string1 { border-bottom: 1px solid #7f8c8d; }
 .fretboard .fret { float: left; width: 5%; border-right: 2px solid #000; height: 20px; line-height: 20px; text-align: center; background: #fee9b4; position: relative; }
-.fretboard .fret.focus { background: #f0b37e !important; }
+.fretboard .fret.focus { background: #f6ceab !important; }
 .fretboard .fret span { position: relative; z-index: 1; margin-top: 1px; height: 18px; width: 18px; display: inline-block; -webkit-border-radius: 9px; -moz-border-radius: 9px; -ms-border-radius: 9px; -o-border-radius: 9px; border-radius: 9px; font-size: 10px; line-height: 18px; text-align: center; color: #fff; z-index: 20; }
 .fretboard .fret span.lowlight { background: rgba(231, 76, 60, 0.3); }
 .fretboard .fret span.highlight { background: #e67e22; -webkit-box-shadow: 0px 0px 5px 1px rgba(255, 255, 190, 0.75); -moz-box-shadow: 0px 0px 5px 1px rgba(255, 255, 190, 0.75); box-shadow: 0px 0px 5px 1px rgba(255, 255, 190, 0.75); }

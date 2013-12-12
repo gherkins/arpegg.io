@@ -30,12 +30,14 @@ var ChordView = Backbone.View.extend({
             }))
             .appendTo(this.container);
 
-        this.updateModel();
-
+        //enable unison interval by default
         this.$el
             .find('.interval:first')
             .prop('checked', true)
             .prop('disabled', true);
+
+        //write intervals to model
+        this.updateModel();
     },
 
     /**
