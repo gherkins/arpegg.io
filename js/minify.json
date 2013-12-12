@@ -13,6 +13,8 @@
 
         "Sam.js",
 
+        "model/Clock.js",
+
         "model/Chord.js",
         "view/Chord.js",
 
