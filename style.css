@@ -44,6 +44,10 @@ label { font-size: 12px; }
 .chords .chord { float: left; margin-right: 20px; padding: 5px; background: #eee; }
 .chords .chord .remove { float: right; }
 .chords .chord.active { background: #fee9b4; }
+.chords ul.ticks { width: 100%; height: 20px; }
+.chords ul.ticks li { text-align: center; width: 25%; display: block; float: left; height: 10px; }
+.chords ul.ticks li span { display: inline-block; width: 10px; height: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; background: #ccc; }
+.chords ul.ticks li.active span { background: #3498db; }
 
 body { padding: 10px; }
 
@@ -56,3 +60,8 @@ body { padding: 10px; }
 .actions { margin-top: 20px; }
 
 .clear { clear: both; }
+
+.actions button.play span.play { display: inline-block; }
+.actions button.play span.stop { display: none; }
+.actions button.play.playing span.play { display: none; }
+.actions button.play.playing span.stop { display: inline-block; }

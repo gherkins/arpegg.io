@@ -40,10 +40,31 @@ body {
   }
 }
 
-.actions{
+.actions {
   margin-top: 20px;
 }
 
 .clear {
   clear: both;
+}
+
+.actions {
+  button.play {
+
+    span.play {
+      display: inline-block;
+    }
+    span.stop {
+      display: none;
+    }
+
+    &.playing {
+      span.play {
+        display: none;
+      }
+      span.stop {
+        display: inline-block;
+      }
+    }
+  }
 }

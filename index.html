@@ -14,7 +14,10 @@
 
 <div class="actions">
     <button class="add-chord">add chord</button>
-    <button class="play">play</button>
+    <button class="play">
+        <span class="play">play</span>
+        <span class="stop">stop</span>
+    </button>
 </div>
 
 <div class="clear"></div>
@@ -23,6 +26,13 @@
 
 
 <script id="chord-template" type="text/x-handlebars-template">
+
+    <ul class="ticks" data-bar="1">
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+    </ul>
 
     <button class="remove">X</button>
 
