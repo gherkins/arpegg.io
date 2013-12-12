@@ -7,9 +7,10 @@ var FretboardView = Backbone.View.extend({
      * event bindings
      */
     events: {
-        "mouseup .focus": "setFocus"
+        "change .focus": "setFocus"
     },
 
+    focusTimeout: null,
 
     /**
      * init
@@ -85,18 +86,22 @@ var FretboardView = Backbone.View.extend({
     setFocus: function (e) {
 
         var focus = {
-//            string: this.$el.find('.focus[data-focus="string"]').val(),
+            string: this.$el.find('.focus[data-focus="string"]').val(),
             fret: parseInt(this.$el.find('.focus[data-focus="fret"]').val())
         }
-
-        this.model.set('focus', focus);
 
         this.$el
             .find('.fret')
             .removeClass('focus')
-//            .filter('[data-string="' + focus.string + '"]')
+            .filter('[data-string="' + focus.string + '"]')
             .filter('[data-fret="' + focus.fret + '"]')
             .addClass('focus');
+
+        var self = this;
+        clearTimeout(this.focusTimeout);
+        this.focusTimeout = setTimeout(function () {
+            self.model.set('focus', focus);
+        }, 500);
 
     },
 

@@ -6,11 +6,16 @@
 
     float: left;
     margin-right: 20px;
-    input {
+    padding: 5px;
+
+    background: #eee;
+
+    .remove {
+      float: right;
     }
 
-    label {
-
+    &.active {
+      background: #fee9b4;
     }
 
   }

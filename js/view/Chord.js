@@ -46,7 +46,7 @@ var ChordView = Backbone.View.extend({
 
         this.$el
             .html(Handlebars.compile(tpl)({
-                notes: MUSIC.notes,
+                notes: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
                 intervals: MUSIC.intervals,
                 id: this.id
             }))

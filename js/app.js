@@ -25,9 +25,11 @@ $(function () {
         fretboard.showDots();
     });
 
-    $('button.add-chord').on('click', function () {
-        chords.add(new Chord());
-    });
+    $('button.add-chord')
+        .on('click', function () {
+            chords.add(new Chord());
+        })
+        .trigger('click');
 
     fretboard.model.on('change:focus', function () {
         $('.chords .chord.active .select').click();
