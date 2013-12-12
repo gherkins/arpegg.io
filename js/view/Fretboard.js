@@ -86,14 +86,14 @@ var FretboardView = Backbone.View.extend({
     setFocus: function (e) {
 
         var focus = {
-            string: this.$el.find('.focus[data-focus="string"]').val(),
+//            string: this.$el.find('.focus[data-focus="string"]').val(),
             fret: parseInt(this.$el.find('.focus[data-focus="fret"]').val())
         }
 
         this.$el
             .find('.fret')
             .removeClass('focus')
-            .filter('[data-string="' + focus.string + '"]')
+//            .filter('[data-string="' + focus.string + '"]')
             .filter('[data-fret="' + focus.fret + '"]')
             .addClass('focus');
 
