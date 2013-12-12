@@ -6,7 +6,8 @@ var ChordView = Backbone.View.extend({
 
     events: {
         "change input,select": "updateModel",
-        "click button.remove": "kill"
+        "click button.remove": "kill",
+        "click button.play": "play"
     },
 
     initialize: function (options) {
@@ -30,6 +31,11 @@ var ChordView = Backbone.View.extend({
             .appendTo(this.container);
 
         this.updateModel();
+
+        this.$el
+            .find('.interval:first')
+            .prop('checked', true)
+            .prop('disabled', true);
     },
 
     /**
@@ -54,6 +60,10 @@ var ChordView = Backbone.View.extend({
     kill: function () {
         this.model.destroy();
         this.remove();
+    },
+
+    play: function () {
+        this.model.set('notes', this.model.get('notes'));
     }
 
 });

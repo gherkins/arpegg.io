@@ -1,9 +1,8 @@
 $(function () {
 
-    var fretboard = new Fretboard();
 
-    new FretboardView({
-        model: fretboard,
+    var fretboard = new FretboardView({
+        model: new Fretboard(),
         el: $('.fretboard')
     });
 
@@ -21,17 +20,11 @@ $(function () {
         });
     });
 
-    chords.on('change', function (model) {
-        var notes = [];
-        $.each(chords.models, function () {
-            if (0 === this.get('notes').length) {
-                return true;
-            }
-            notes.push(this.get('notes'));
-        });
-
-        console.log(notes);
-
+    chords.on('change', function (chord) {
+        //find focused pattern for current chord
+        fretboard.setNotes(chord.get('notes'));
+        //lights
+        fretboard.showDots();
     });
 
     $('button.add-chord').on('click', function () {
