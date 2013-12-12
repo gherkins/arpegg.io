@@ -1,16 +1,29 @@
+/**
+ * view for the fretboard
+ */
 var FretboardView = Backbone.View.extend({
 
+    /**
+     * event bindings
+     */
     events: {
         "change .focus": "setFocus"
     },
 
 
+    /**
+     * init
+     * @constructs
+     */
     initialize: function () {
         this.render();
         this.listenTo(this.model, "change:activeFrets", this.showDots);
 
     },
 
+    /**
+     * render template
+     */
     render: function () {
 
         var self = this;
@@ -29,6 +42,9 @@ var FretboardView = Backbone.View.extend({
         });
     },
 
+    /**
+     * draw all dots for current activeFrets
+     */
     showDots: function () {
         var self = this;
         this.$el.find('.fret span').fadeOut('fast');
@@ -38,6 +54,10 @@ var FretboardView = Backbone.View.extend({
         });
     },
 
+    /**
+     * draw single dot on fretboard
+     * @param fret
+     */
     showDot: function (fret) {
 
         var span = $('<span></span>')
@@ -55,6 +75,13 @@ var FretboardView = Backbone.View.extend({
 
     },
 
+
+    /**
+     * set focused area on fretboard and
+     * on model
+     *
+     * @param e
+     */
     setFocus: function (e) {
 
         var focus = {
@@ -74,6 +101,13 @@ var FretboardView = Backbone.View.extend({
     },
 
 
+    /**
+     * activate set of notes on fretboard
+     * FIXME: cleanup / outsource...
+     *
+     * @param notes
+     * @returns {boolean}
+     */
     setNotes: function (notes) {
 
         var combos = [];

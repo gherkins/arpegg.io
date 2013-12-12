@@ -1,19 +1,41 @@
+/**
+ * view for chord
+ */
 var ChordView = Backbone.View.extend({
 
+
+    /**
+     * tag name for elemetn
+     */
     tagName: "div",
 
+    /**
+     * classname of element
+     * @type String
+     */
     className: "chord",
 
+    /**
+     * event bindings
+     */
     events: {
         "change input,select": "updateModel",
         "click button.remove": "kill",
-        "click button.play": "play"
+        "click button.select": "select"
     },
 
+    /**
+     * init
+     * @param options
+     */
     initialize: function (options) {
         this.container = options.container;
         this.id = options.id; //dom id for labels
         this.render();
+
+        this.listenTo(this.model, 'select', this.activate);
+        this.activate();
+
     },
 
     /**
@@ -64,8 +86,19 @@ var ChordView = Backbone.View.extend({
         this.remove();
     },
 
-    play: function () {
-        this.model.set('notes', this.model.get('notes'));
+    /**
+     * trigger select event on model
+     */
+    select: function () {
+        this.model.trigger('select', this.model);
+    },
+
+    /**
+     * set current view active
+     */
+    activate: function () {
+        this.$el.siblings().removeClass('active');
+        this.$el.addClass('active');
     }
 
 });

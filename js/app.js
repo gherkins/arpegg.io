@@ -18,7 +18,7 @@ $(function () {
         });
     });
 
-    chords.on('change', function (chord) {
+    chords.on('select', function (chord) {
         //find focused pattern for current chord
         fretboard.setNotes(chord.get('notes'));
         //lights
