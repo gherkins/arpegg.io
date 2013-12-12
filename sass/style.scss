@@ -1,0 +1,161 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import "compass/reset";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+@import "compass/css3/opacity";
+@import "compass/css3/transition";
+@import "_fonts";
+
+body {
+  padding: 10px;
+}
+
+button.show {
+  margin-top: 20px;
+  font-size: 18px;
+  height: 40px;
+  width: 435px;
+}
+
+.fretboard {
+  margin-top: 20px;
+
+  & .string {
+    width: 78%;
+    clear: both;
+    position: relative;
+
+    & > span.bit {
+      display: block;
+      position: absolute;
+      top: 9px;
+      width: inherit;
+      border-bottom: 2px solid #7f8c8d;
+      border-right: 32px solid #7f8c8d;
+      z-index: 10;
+
+      &.string6 {
+        border-bottom: 4px solid #7f8c8d;
+      }
+      &.string5,
+      &.string4 {
+        border-bottom: 3px solid #7f8c8d;
+      }
+      &.string1 {
+        border-bottom: 1px solid #7f8c8d;
+      }
+
+    }
+
+  }
+
+  & .fret {
+    float: left;
+    width: 5%;
+    border-right: 2px solid #000;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: #fee9b4;
+    position: relative;
+
+    & span {
+      position: relative;
+      z-index: 1;
+      margin-top: 1px;
+      height: 18px;
+      width: 18px;
+      display: inline-block;
+      @include border-radius(9px);
+      font-size: 10px;
+      line-height: 20px;
+      text-align: center;
+      color: #fff;
+      z-index: 20;
+
+      &.lowlight {
+        background: rgba(231, 76, 60, 0.3);
+      }
+
+      &.highlight {
+        background: #e67e22;
+        @include box-shadow(0px 0px 5px 1px rgba(255, 255, 190, .75))
+      }
+
+      &.root {
+        background: #e74c3c;
+      }
+
+    }
+
+    &[data-fret="0"] {
+      width: 3%;
+      border-right: 4px solid #000;
+      background: #2c3e50;
+    }
+
+    &[data-fret="3"][data-string="3"],
+    &[data-fret="5"][data-string="3"],
+    &[data-fret="7"][data-string="3"],
+    &[data-fret="9"][data-string="3"],
+    &[data-fret="12"][data-string="1"],
+    &[data-fret="12"][data-string="4"],
+    &[data-fret="15"][data-string="3"],
+    &[data-fret="17"][data-string="3"],
+    &[data-fret="19"][data-string="3"] {
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 1px;
+        height: 18px;
+        width: 18px;
+        margin: 10px -10px;
+        display: inline-block;
+        @include border-radius(9px);
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 1;
+      }
+
+    }
+
+    &[data-fret="12"][data-string="1"],
+    &[data-fret="12"][data-string="4"] {
+      &:after {
+        top: 10px;
+      }
+    }
+
+  }
+
+}
+
+.combos {
+  margin-top: 20px;
+
+  & li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 40px;
+
+    & button {
+      border: none;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      outline: none;
+      margin: 0;
+      background: #bdc3c7;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.active {
+        background: #3498db;
+      }
+    }
+  }
+}

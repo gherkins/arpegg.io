@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>arpegg.io</h1>
+
+<div class="chords"></div>
+
+<div class="fretboard"></div>
+
+
+<script id="fretboard-template" type="text/x-handlebars-template">
+    {{#for 1 7 1}}
+    <div class="string">
+        <span class="bit string{{this}}"></span>
+        {{#for 0 16 1}}
+        <div class="fret" data-string="{{../this}}" data-fret="{{this}}"></div>
+        {{/for}}
+        <div class="clear"></div>
+    </div>
+    {{/for}}
+</script>
+<script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>

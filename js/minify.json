@@ -1,0 +1,23 @@
+{
+    "uglify-js-arguments": "-o",
+    "scripts": [
+        "vendor/jquery-1.10.2.js",
+        "vendor/underscore.js",
+        "vendor/handlebars-v1.1.2.js",
+        "vendor/backbone.js",
+
+        "handlebars.helper.js",
+
+        "Ferret.js",
+        "Sam.js",
+
+        "model/Chord.js",
+        "view/Chord.js",
+
+        "model/Fretboard.js",
+        "view/Fretboard.js",
+
+        "app.js"
+    ],
+    "minifiedFilename": "../scripts.js"
+}
