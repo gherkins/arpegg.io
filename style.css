@@ -49,7 +49,7 @@ label { font-size: 12px; }
 .chords ul.ticks li span { display: inline-block; width: 10px; height: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; background: #ccc; }
 .chords ul.ticks li.active span { background: #3498db; }
 
-body { padding: 10px; }
+body { padding: 20px; }
 
 .combos { margin-top: 20px; }
 .combos li { display: inline-block; margin-right: 5px; margin-bottom: 40px; }
