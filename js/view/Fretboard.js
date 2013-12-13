@@ -30,7 +30,6 @@ var FretboardView = Backbone.View.extend({
         var self = this;
         var tpl = $("#fretboard-template").html();
         this.$el.html(Handlebars.compile(tpl));
-        this.showDots();
         this.setFocus();
 
         //populate fret note-attributes
@@ -86,14 +85,14 @@ var FretboardView = Backbone.View.extend({
     setFocus: function (e) {
 
         var focus = {
-//            string: this.$el.find('.focus[data-focus="string"]').val(),
+            string: this.$el.find('.focus[data-focus="string"]').val(),
             fret: parseInt(this.$el.find('.focus[data-focus="fret"]').val())
         }
 
         this.$el
             .find('.fret')
             .removeClass('focus')
-//            .filter('[data-string="' + focus.string + '"]')
+            .filter('[data-string="' + focus.string + '"]')
             .filter('[data-fret="' + focus.fret + '"]')
             .addClass('focus');
 
@@ -115,13 +114,13 @@ var FretboardView = Backbone.View.extend({
      */
     setNotes: function (notes) {
 
-        var combos = [];
+        var self = this
+            , combos = [];
 
-        if (0 === notes.length) {
+        if (0 === notes.length || undefined === self.model.get('focus').fret) {
             return false;
         }
 
-        var self = this;
 
         //draw paths for all requested notes
         $(notes).each(function (noteIndex, note) {
@@ -137,6 +136,17 @@ var FretboardView = Backbone.View.extend({
                 .each(function (fretIndex, fret) {
 
                     fret = $(fret);
+
+                    var focusFretDist = Math.abs(self.model.get('focus').fret - fret.data('fret'));
+                    if (focusFretDist > 3) {
+                        return true;
+                    }
+
+                    var focusStringDist = Math.abs(self.model.get('focus').string - fret.data('string'));
+                    if (focusStringDist > 3) {
+                        return true;
+                    }
+
                     var path = {
                         note: note,
                         string: fret.data('string'),

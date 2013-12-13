@@ -67,6 +67,7 @@ var ChordView = Backbone.View.extend({
      * model on form change
      */
     updateModel: function () {
+
         //set key
         this.model.set('key', this.$el.find('#key').val());
         //and intervals
