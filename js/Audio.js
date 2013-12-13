@@ -1,4 +1,4 @@
-var Piano = Backbone.Model.extend({
+var Audio = Backbone.Model.extend({
 
     initialize: function () {
         var request = new XMLHttpRequest();

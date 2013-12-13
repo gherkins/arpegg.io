@@ -21,7 +21,8 @@ var ChordView = Backbone.View.extend({
     events: {
         "change input,select": "updateModel",
         "click button.remove": "kill",
-        "click button.select": "select"
+        "click button.select": "select",
+        "click button.play": "play"
     },
 
     /**
@@ -107,6 +108,13 @@ var ChordView = Backbone.View.extend({
      */
     select: function () {
         this.model.trigger('select', this.model);
+    },
+
+    /**
+     * playback event
+     */
+    play: function () {
+        this.model.trigger('play', this.model);
     },
 
     /**

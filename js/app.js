@@ -2,10 +2,10 @@ $(function () {
 
 
     /**
-     * init Piano
-     * @type {Piano}
+     * init Audio
+     * @type {Audio}
      */
-    var piano = new Piano();
+    var audio = new Audio();
 
     /**
      * init clock
@@ -52,9 +52,14 @@ $(function () {
         fretboard.setNotes(chord.get('notes'));
         //lights
         fretboard.showDots();
+    });
 
-        piano.set('notes', chord.get('notes'));
-        piano.play();
+    /**
+     * playback chord
+     */
+    chords.on('play', function (chord) {
+        audio.set('notes', chord.get('notes'));
+        audio.play();
     });
 
     /**
@@ -77,7 +82,7 @@ $(function () {
     /**
      * transport start/stop
      */
-    $('button.play').on('click', function () {
+    $('.actions button.play').on('click', function () {
         if ($(this).hasClass('playing')) {
             clock.stop();
         }
@@ -92,7 +97,7 @@ $(function () {
      */
     clock.on('start', function () {
         var firstChord = $('.chords .chord:first-child');
-        firstChord.find('button.select').trigger('click');
+        firstChord.find('button.select, button.play').trigger('click');
         firstChord.find('.ticks li:first-child').addClass('active');
     });
 
@@ -106,7 +111,7 @@ $(function () {
         if (0 === next.length) {
             var currentChord = current.closest('.chord');
             var nextChord = (currentChord.next().length > 0) ? currentChord.next() : $('.chords .chord:first-child');
-            nextChord.find('button.select').trigger('click');
+            nextChord.find('button.select, button.play').trigger('click');
             var next = nextChord.find('.ticks li:first-child');
         }
 
