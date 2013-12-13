@@ -47,20 +47,20 @@
 
     <div class="clear"></div>
     {{#each intervals}}
-    <input class="interval" type="checkbox" id="{{ ../id }}_{{ @key }}" value="{{ @key }}">
-    <label for="{{ ../id }}_{{ @key }}">{{ @key }}</label>
+    <input class="interval" type="checkbox" id="{{ ../id }}_{{ @key }}" value="{{ this }}">
+    <label for="{{ ../id }}_{{ @key }}">{{ @key }} - {{ this }}</label>
 
     <div class="clear"></div>
     {{/each}}
 
-    <div class="clear"></div>
+    <!--<div class="clear"></div>-->
 
-    <select id="bars">
-        <option value="1">1 bar</option>
-        <option value="1">2 bars</option>
-        <option value="1">3 bars</option>
-        <option value="1">4 bars</option>
-    </select>
+    <!--<select id="bars">-->
+    <!--<option value="1">1 bar</option>-->
+    <!--<option value="1">2 bars</option>-->
+    <!--<option value="1">3 bars</option>-->
+    <!--<option value="1">4 bars</option>-->
+    <!--</select>-->
 
 </script>
 
