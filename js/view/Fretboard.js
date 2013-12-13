@@ -180,6 +180,9 @@ var FretboardView = Backbone.View.extend({
             a = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(a));
             b = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(b));
 
+            a += Math.abs(self.model.get('focus').string - self.model.getPathAvgString(a));
+            b += Math.abs(self.model.get('focus').string - self.model.getPathAvgString(b));
+
             if (a < b) {
                 return 1;
             }

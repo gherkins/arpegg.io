@@ -97,6 +97,14 @@ var Fretboard = Backbone.Model.extend({
             fret += this.fret;
         });
         return fret / path.length;
+    },
+
+    getPathAvgString: function (path) {
+        var string = 0;
+        $.each(path, function () {
+            string += this.string;
+        });
+        return string / path.length;
     }
 
 });
