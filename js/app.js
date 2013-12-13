@@ -58,8 +58,7 @@ $(function () {
      * playback chord
      */
     chords.on('play', function (chord) {
-        audio.set('notes', chord.get('notes'));
-        audio.play();
+        audio.playChord(chord.get('notes'));
     });
 
     /**
@@ -105,6 +104,7 @@ $(function () {
      * sequencer tick
      */
     clock.on('tick', function () {
+        audio.playClick();
         var current = $('.chords .chord .ticks li.active');
         var next = current.next();
 
