@@ -115,7 +115,7 @@ var FretboardView = Backbone.View.extend({
     setNotes: function (notes) {
 
         var self = this
-            , combos = [];
+            , paths = [];
 
         if (0 === notes.length || undefined === self.model.get('focus').fret) {
             return false;
@@ -127,7 +127,7 @@ var FretboardView = Backbone.View.extend({
 
             note = self.model.simpleLatin(note);
 
-            combos[noteIndex] = [];
+            paths[noteIndex] = [];
 
             //paths get longer for each note
             self.$el
@@ -156,14 +156,14 @@ var FretboardView = Backbone.View.extend({
                     };
 
                     if (0 === noteIndex) {
-                        combos[noteIndex].push([path]);
+                        paths[noteIndex].push([path]);
                     }
                     else {
-                        $(combos[noteIndex - 1]).each(function (prevComboIndex, prevCombo) {
+                        $(paths[noteIndex - 1]).each(function (prevComboIndex, prevCombo) {
                             if (self.model.isPlayable(path, prevCombo)) {
                                 var combo = $.extend([], prevCombo);
                                 combo.push(path);
-                                combos[noteIndex].push(combo);
+                                paths[noteIndex].push(combo);
                             }
                         });
                     }
@@ -173,9 +173,9 @@ var FretboardView = Backbone.View.extend({
         });
 
         //last set has paths with all notes in it
-        combos = combos[notes.length - 1];
+        paths = paths[notes.length - 1];
 
-        combos.sort(function (a, b) {
+        paths.sort(function (a, b) {
             var fretDistA = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(a));
             var fretDistB = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(b));
             var stringDistA = Math.abs(self.model.get('focus').string - self.model.getPathAvgString(a));
@@ -193,7 +193,7 @@ var FretboardView = Backbone.View.extend({
             return 0;
         });
 
-        self.model.set('activeFrets', combos.pop());
+        self.model.set('activeFrets', paths.pop());
 
         return true;
     }
