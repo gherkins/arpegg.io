@@ -95,6 +95,7 @@ $(function () {
      * start sequencer
      */
     clock.on('start', function () {
+        audio.playClick();
         var firstChord = $('.chords .chord:first-child');
         firstChord.find('button.select, button.play').trigger('click');
         firstChord.find('.ticks li:first-child').addClass('active');
@@ -124,6 +125,10 @@ $(function () {
      */
     clock.on('stop', function () {
         $('.chords .chord .ticks li').removeClass('active');
+    });
+
+    $('input.tempo').on('change', function () {
+        clock.set('interval', $(this).val());
     });
 
 });

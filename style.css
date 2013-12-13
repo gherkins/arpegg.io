@@ -57,10 +57,11 @@ body { padding: 20px; }
 .combos li button:hover { cursor: pointer; }
 .combos li button.active { background: #3498db; }
 
-.actions { margin-top: 20px; }
+.actions { margin-top: 20px; margin-bottom: 20px; }
 
 .clear { clear: both; }
 
+.actions label { display: block; margin-top: 10px; }
 .actions button.play span.play { display: inline-block; }
 .actions button.play span.stop { display: none; }
 .actions button.play.playing span.play { display: none; }

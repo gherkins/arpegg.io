@@ -42,6 +42,7 @@ body {
 
 .actions {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .clear {
@@ -49,6 +50,12 @@ body {
 }
 
 .actions {
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+
   button.play {
 
     span.play {
