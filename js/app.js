@@ -2,6 +2,12 @@ $(function () {
 
 
     /**
+     * init Piano
+     * @type {Piano}
+     */
+    var piano = new Piano();
+
+    /**
      * init clock
      *
      * @type {Clock}
@@ -46,6 +52,9 @@ $(function () {
         fretboard.setNotes(chord.get('notes'));
         //lights
         fretboard.showDots();
+
+        piano.set('notes', chord.get('notes'));
+        piano.play();
     });
 
     /**

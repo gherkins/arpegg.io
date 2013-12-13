@@ -11,7 +11,7 @@
 
         "handlebars.helper.js",
 
-        "Sam.js",
+        "Piano.js",
 
         "model/Clock.js",
 
