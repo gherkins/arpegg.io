@@ -176,12 +176,13 @@ var FretboardView = Backbone.View.extend({
         combos = combos[notes.length - 1];
 
         combos.sort(function (a, b) {
+            var fretDistA = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(a));
+            var fretDistB = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(b));
+            var stringDistA = Math.abs(self.model.get('focus').string - self.model.getPathAvgString(a));
+            var stringDistB = Math.abs(self.model.get('focus').string - self.model.getPathAvgString(b));
 
-            a = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(a));
-            b = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(b));
-
-            a += Math.abs(self.model.get('focus').string - self.model.getPathAvgString(a));
-            b += Math.abs(self.model.get('focus').string - self.model.getPathAvgString(b));
+            a = fretDistA + stringDistA;
+            b = fretDistB + stringDistB;
 
             if (a < b) {
                 return 1;
