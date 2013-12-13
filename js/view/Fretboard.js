@@ -137,16 +137,6 @@ var FretboardView = Backbone.View.extend({
 
                     fret = $(fret);
 
-                    var focusFretDist = Math.abs(self.model.get('focus').fret - fret.data('fret'));
-                    if (focusFretDist > 3) {
-                        return true;
-                    }
-
-                    var focusStringDist = Math.abs(self.model.get('focus').string - fret.data('string'));
-                    if (focusStringDist > 3) {
-                        return true;
-                    }
-
                     var path = {
                         note: note,
                         string: fret.data('string'),
@@ -154,6 +144,16 @@ var FretboardView = Backbone.View.extend({
                         text: note,
                         cssclass: (0 === noteIndex) ? 'root' : ''
                     };
+
+                    var focusFretDist = Math.abs(self.model.get('focus').fret - path.fret);
+                    if (focusFretDist > 3) {
+                        return true;
+                    }
+
+                    var focusStringDist = Math.abs(self.model.get('focus').string - path.string);
+                    if (focusStringDist > 3) {
+                        return true;
+                    }
 
                     if (0 === noteIndex) {
                         paths[noteIndex].push([path]);
@@ -176,21 +176,7 @@ var FretboardView = Backbone.View.extend({
         paths = paths[notes.length - 1];
 
         paths.sort(function (a, b) {
-            var fretDistA = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(a));
-            var fretDistB = Math.abs(self.model.get('focus').fret - self.model.getPathAvgFret(b));
-            var stringDistA = Math.abs(self.model.get('focus').string - self.model.getPathAvgString(a));
-            var stringDistB = Math.abs(self.model.get('focus').string - self.model.getPathAvgString(b));
-
-            a = fretDistA + stringDistA;
-            b = fretDistB + stringDistB;
-
-            if (a < b) {
-                return 1;
-            }
-            if (a > b) {
-                return -1;
-            }
-            return 0;
+            return self.model.sortPaths(a, b);
         });
 
         self.model.set('activeFrets', paths.pop());

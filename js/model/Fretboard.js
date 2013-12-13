@@ -105,6 +105,24 @@ var Fretboard = Backbone.Model.extend({
             string += this.string;
         });
         return string / path.length;
+    },
+
+    sortPaths: function (a, b) {
+        var fretDistA = Math.abs(this.get('focus').fret - this.getPathAvgFret(a));
+        var fretDistB = Math.abs(this.get('focus').fret - this.getPathAvgFret(b));
+        var stringDistA = Math.abs(this.get('focus').string - this.getPathAvgString(a));
+        var stringDistB = Math.abs(this.get('focus').string - this.getPathAvgString(b));
+
+        a = fretDistA + stringDistA;
+        b = fretDistB + stringDistB;
+
+        if (a < b) {
+            return 1;
+        }
+        if (a > b) {
+            return -1;
+        }
+        return 0;
     }
 
 });
