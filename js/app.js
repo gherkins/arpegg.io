@@ -120,6 +120,7 @@ $(function () {
         current.removeClass('active');
     });
 
+
     /**
      * sequencer stop
      */
@@ -127,6 +128,10 @@ $(function () {
         $('.chords .chord .ticks li').removeClass('active');
     });
 
+
+    /**
+     * tempo slider
+     */
     $('input.tempo').on('change', function () {
         clock.set('interval', $(this).val());
     });
