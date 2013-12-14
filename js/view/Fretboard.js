@@ -106,12 +106,12 @@ var FretboardView = Backbone.View.extend({
             var focusFret = this.$el
                 .find('.fret')
                 .filter('[data-string="' + i + '"]')
-                .filter('[data-fret="' + this.model.get('focus').fret + '"]');
-            focusFret
-                .add(focusFret.next())
-                .add(focusFret.next().next())
-                .add(focusFret.prev())
-                .add(focusFret.prev().prev())
+                .filter('[data-fret="' + this.model.get('focus').fret + '"]')
+//            focusFret
+//                .add(focusFret.next())
+//                .add(focusFret.next().next())
+//                .add(focusFret.prev())
+//                .add(focusFret.prev().prev())
                 .addClass('focus');
         }
 
