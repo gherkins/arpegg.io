@@ -3,13 +3,23 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 @import "compass/css3/opacity";
-@import "compass/css3/transition";
-@import "_fonts";
+//@import "compass/css3/transition";
 @import "_fretboard";
 @import "_chords";
 
 body {
-  padding: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.wrap{
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 .social {

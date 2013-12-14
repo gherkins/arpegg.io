@@ -1,18 +1,18 @@
 .fretboard {
   margin-top: 20px;
+  width: 100%;
 
   .string {
-    width: 78%;
+    width: 100%;
     clear: both;
     position: relative;
 
     & > span.bit {
       display: block;
       position: absolute;
-      top: 9px;
+      top:11px;
       width: inherit;
       border-bottom: 2px solid #7f8c8d;
-      border-right: 32px solid #7f8c8d;
       z-index: 10;
 
       .string6 {
@@ -31,9 +31,9 @@
 
   .fret {
     float: left;
-    width: 5%;
+    width: 59px;
     border-right: 2px solid #000;
-    height: 20px;
+    height: 24px;
     line-height: 20px;
     text-align: center;
     background: #fee9b4;
@@ -48,12 +48,12 @@
       position: relative;
       z-index: 1;
       margin-top: 1px;
-      height: 18px;
-      width: 18px;
+      height: 22px;
+      width: 22px;
       display: inline-block;
-      @include border-radius(9px);
+      @include border-radius(11px);
       font-size: 10px;
-      line-height: 18px;
+      line-height: 22px;
       text-align: center;
       color: #fff;
       z-index: 20;
@@ -74,7 +74,7 @@
     }
 
     &[data-fret="0"] {
-      width: 3%;
+      width: 41px;
       border-right: 4px solid #000;
       background: #2c3e50;
     }
