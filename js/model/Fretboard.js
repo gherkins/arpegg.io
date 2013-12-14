@@ -8,7 +8,8 @@ var Fretboard = Backbone.Model.extend({
             fret: 7
         },
         stringOffsets: [0, 4, 11, 7, 2, 9, 4],
-        noteNames: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"]
+        noteNames: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"],
+        intervalShortNames: ['1', 'b2', '2', 'b3', '3', '4', 'b5', '5', 'b6', '6', 'b7', '7']
     },
 
 
@@ -126,6 +127,20 @@ var Fretboard = Backbone.Model.extend({
             return -1;
         }
         return 0;
+    },
+
+
+    getIntervalShortName: function (noteA, noteB) {
+
+        var indexA = $.inArray(noteA, this.get('noteNames'));
+        var indexB = $.inArray(noteB, this.get('noteNames'));
+
+        if (indexB < indexA) {
+            indexB += 12;
+        }
+
+        var index = indexB - indexA;
+        return this.get('intervalShortNames')[index];
     }
 
 });

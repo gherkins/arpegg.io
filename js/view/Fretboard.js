@@ -161,7 +161,7 @@ var FretboardView = Backbone.View.extend({
                         note: note,
                         string: fret.data('string'),
                         fret: fret.data('fret'),
-                        text: note,
+                        text: self.model.getIntervalShortName(notes[0], note),
                         cssclass: (note === root) ? 'root' : ''
                     };
 
