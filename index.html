@@ -62,16 +62,15 @@
 
     <div class="clear"></div>
     {{#each intervals}}
-    <input class="interval" type="checkbox" id="{{ ../id }}_{{ @key }}" value="{{ this }}">
-    <label for="{{ ../id }}_{{ @key }}">{{ @key }} - {{ this }}</label>
-
-    <div class="clear"></div>
+    <div class="option">
+        <input class="interval" type="checkbox" id="{{ ../id }}_{{ @key }}" value="{{ @key }}">
+        <label for="{{ ../id }}_{{ @key }}">{{ this }}</label>
+    </div>
     {{/each}}
 
     <div class="clear"></div>
 
-
-    <button class="select">select</button>
+    <!--<button class="select">select</button>-->
 
     <button class="play">play</button>
 

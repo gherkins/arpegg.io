@@ -21,7 +21,7 @@ var ChordView = Backbone.View.extend({
     events: {
         "change input,select": "updateModel",
         "click button.remove": "kill",
-        "click button.select": "select",
+        "click": "select",
         "click button.play": "play"
     },
 
@@ -49,19 +49,19 @@ var ChordView = Backbone.View.extend({
             .html(Handlebars.compile(tpl)({
                 notes: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
                 intervals: {
-                    0: 'unison',
-                    1: 'minor second',
-                    2: 'major second',
-                    3: 'minor third',
-                    4: 'major third',
-                    5: 'fourth',
-                    6: 'diminished fifth',
-                    7: 'fifth',
-                    8: 'minor sixth',
-                    9: 'major sixth',
-                    10: 'minor seventh',
-                    11: 'major seventh',
-                    12: 'octave'
+                    'unison': '1',
+                    'minor second': 'b2',
+                    'major second': '2',
+                    'minor third': 'b3',
+                    'major third': '3',
+                    'fourth': '4',
+                    'diminished fifth': 'b5',
+                    'fifth': '5',
+                    'minor sixth': 'b6',
+                    'major sixth': '6',
+                    'minor seventh': 'b7',
+                    'major seventh': '7',
+                    'octave': '12'
                 },
                 id: this.id
             }))

@@ -18,6 +18,35 @@
       background: #fee9b4;
     }
 
+    input[type="checkbox"] {
+      @extend .hidden-accessible;
+
+      + label {
+        display: block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+
+      }
+
+      &:checked + label {
+        font-weight: bold;
+        background: #3498db;
+        color: #fff;
+      }
+
+    }
+
+    .option {
+      float: left;
+
+      &:nth-child(5n+0) {
+        clear: both;
+      }
+
+    }
+
   }
 
   ul.ticks {
@@ -38,12 +67,11 @@
         background: #ccc;
       }
 
-      &.active span{
+      &.active span {
         background: #3498db;
       }
 
     }
-
 
   }
 
