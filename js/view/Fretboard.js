@@ -136,6 +136,7 @@ var FretboardView = Backbone.View.extend({
             return false;
         }
 
+        var root;
 
         //draw paths for all requested notes
         $(notes).each(function (noteIndex, note) {
@@ -143,6 +144,10 @@ var FretboardView = Backbone.View.extend({
             note = self.model.simpleLatin(note);
 
             paths[noteIndex] = [];
+
+            if (0 === noteIndex) {
+                root = note;
+            }
 
             //paths get longer for each note
             self.$el
@@ -157,7 +162,7 @@ var FretboardView = Backbone.View.extend({
                         string: fret.data('string'),
                         fret: fret.data('fret'),
                         text: note,
-                        cssclass: (0 === noteIndex) ? 'root' : ''
+                        cssclass: (note === root) ? 'root' : ''
                     };
 
                     var focusFretDist = Math.abs(self.model.get('focus').fret - path.fret);
