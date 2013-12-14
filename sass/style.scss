@@ -3,7 +3,16 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 @import "compass/css3/opacity";
+
 //@import "compass/css3/transition";
+
+$fretboard-bg: #fee9b4;
+$fret-focus: #f6ceab;
+$fret-highlight: #e67e22;
+$fret-root: #e74c3c;
+
+$ui-active: #3498db;
+
 @import "_fretboard";
 @import "_chords";
 
@@ -16,7 +25,7 @@ h1 {
   font-size: 2em;
 }
 
-.wrap{
+.wrap {
   width: 960px;
   margin: 0 auto;
   padding: 20px 0;
@@ -34,17 +43,23 @@ h1 {
 
   margin: 20px 0;
 
-  button{
+  button {
     padding: 10px 20px;
     font-size: inherit;
   }
 
   label {
-    display: block;
+    display: inline-block;
     margin-top: 10px;
+    width: 70px;
+    text-align: right;
+    margin-right: 20px;
   }
 
   button.play {
+    width: 80px;
+    text-align: center;
+    margin-right: 10px;
 
     span.play {
       display: inline-block;
@@ -72,10 +87,10 @@ h1 {
   }
   input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none !important;
-    background: #3498db;
-    height: 30px;
-    width: 30px;
-    @include border-radius(15px);
+    background: $ui-active;
+    height: 22px;
+    width: 22px;
+    @include border-radius(11px);
   }
 
 }

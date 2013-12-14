@@ -36,12 +36,12 @@
     height: 24px;
     line-height: 20px;
     text-align: center;
-    background: #fee9b4;
+    background: $fretboard-bg;
     position: relative;
 
     &:hover,
     &.focus {
-      background: lighten(#e67e22, 30%) !important;
+      background: $fret-focus !important;
     }
 
     span {
@@ -58,17 +58,17 @@
       color: #fff;
       z-index: 20;
 
-      &.lowlight {
-        background: rgba(231, 76, 60, 0.3);
-      }
+//      &.lowlight {
+//        background: rgba(231, 76, 60, 0.3);
+//      }
 
       &.highlight {
-        background: #e67e22;
+        background: $fret-highlight;
         @include box-shadow(0px 0px 5px 1px rgba(255, 255, 190, .75))
       }
 
       &.root {
-        background: #e74c3c;
+        background: $fret-root;
       }
 
     }

@@ -42,7 +42,7 @@
 
       &:checked + label {
         font-weight: bold;
-        background: #3498db;
+        background: $ui-active;
         color: #fff;
       }
 
@@ -78,7 +78,7 @@
       }
 
       &.active span {
-        background: #3498db;
+        background: $ui-active;
       }
 
     }
