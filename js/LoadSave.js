@@ -47,7 +47,7 @@ var LoadSave = Backbone.Model.extend({
         clearTimeout(this.get('timeout'));
         var timeout = setTimeout(function () {
             self.doSave();
-        }, 500);
+        }, 100);
         this.set('timeout', timeout);
     },
 
