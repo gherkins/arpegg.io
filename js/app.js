@@ -74,7 +74,9 @@ $(function () {
      * focus change
      */
     fretboard.model.on('change:focus', function () {
-        $('.chords .chord.active').click();
+        $('.chords .chord.active')
+            .removeClass('active')
+            .click();
     });
 
 

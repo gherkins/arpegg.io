@@ -4,8 +4,8 @@ var Fretboard = Backbone.Model.extend({
         activeFrets: {},
         activeRoots: {},
         focus: {
-            string: 5,
-            fret: 5
+            string: 6,
+            fret: 7
         },
         stringOffsets: [0, 4, 11, 7, 2, 9, 4],
         noteNames: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C"]
