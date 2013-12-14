@@ -90,7 +90,6 @@ var FretboardView = Backbone.View.extend({
                 fret: parseInt(fret.data('fret'))
             }
 
-
         this.model.set('focus', focus);
         this.showFocusRange();
         this.showDots();
@@ -98,19 +97,24 @@ var FretboardView = Backbone.View.extend({
     },
 
     showFocusRange: function () {
-        var focusFret = this.$el
-            .find('.fret')
-            .removeClass('focus')
-            //FIXME: find even uglier solution...
-            .filter('[data-string="' + this.model.get('focus').string + '"], [data-string="' + (this.model.get('focus').string + 1) + '"], [data-string="' + (this.model.get('focus').string + -1) + '"]')
-            .filter('[data-fret="' + this.model.get('focus').fret + '"]');
 
-        focusFret
-            .add(focusFret.next())
-            .add(focusFret.next().next())
-            .add(focusFret.prev())
-            .add(focusFret.prev().prev())
-            .addClass('focus');
+        this.$el.find('.fret').removeClass('focus');
+
+        var string = this.model.get('focus').string;
+
+        for (var i = (string - 1); i < (string + 2); i++) {
+            var focusFret = this.$el
+                .find('.fret')
+                .filter('[data-string="' + i + '"]')
+                .filter('[data-fret="' + this.model.get('focus').fret + '"]');
+            focusFret
+                .add(focusFret.next())
+                .add(focusFret.next().next())
+                .add(focusFret.prev())
+                .add(focusFret.prev().prev())
+                .addClass('focus');
+        }
+
     },
 
 
