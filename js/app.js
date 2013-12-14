@@ -1,3 +1,9 @@
+var chords
+    , clock
+    , audio
+    , loadsave
+    , fretboard;
+
 $(function () {
 
     FastClick.attach(document.body);
@@ -6,21 +12,25 @@ $(function () {
      * init Audio
      * @type {Audio}
      */
-    var audio = new Audio();
+    audio = new Audio()
 
     /**
-     * init clock
-     *
      * @type {Clock}
      */
-    var clock = new Clock();
+    clock = new Clock();
+
+    /**
+     * init URL storage
+     * @type {LoadSave}
+     */
+    loadsave = new LoadSave();
 
     /**
      * init fretboard view
      *
      * @type {FretboardView}
      */
-    var fretboard = new FretboardView({
+    fretboard = new FretboardView({
         model: new Fretboard(),
         el: $('.fretboard')
     });
@@ -30,7 +40,7 @@ $(function () {
      *
      * @type {Collection}
      */
-    var chords = new Backbone.Collection([], {
+    chords = new Backbone.Collection([], {
         model: Chord
     });
 
@@ -55,6 +65,10 @@ $(function () {
         fretboard.showDots();
     });
 
+    chords.on('change', function (chord) {
+        loadsave.save();
+    });
+
     /**
      * playback chord
      */
@@ -68,8 +82,13 @@ $(function () {
     $('button.add-chord')
         .on('click', function () {
             chords.add(new Chord());
-        })
-        .trigger('click');
+        });
+
+    //try to load chord from URL
+    if (false === loadsave.load(window.location.hash.substr(1))) {
+        $('button.add-chord').trigger('click');
+    }
+
 
     /**
      * focus change
@@ -78,6 +97,8 @@ $(function () {
         $('.chords .chord.active')
             .removeClass('active')
             .click();
+
+        loadsave.save();
     });
 
 
@@ -139,6 +160,7 @@ $(function () {
         .on('change', function () {
             $('span.bpm').text($(this).val());
             clock.setTempo($(this).val());
+            loadsave.save();
         })
         .trigger('change');
 

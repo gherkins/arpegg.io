@@ -67,8 +67,8 @@
     <div class="clear"></div>
     {{#each intervals}}
     <div class="option">
-        <input class="interval" type="checkbox" id="{{ ../id }}_{{ @key }}" value="{{ @key }}">
-        <label for="{{ ../id }}_{{ @key }}">{{ this }}</label>
+        <input class="interval" type="checkbox" id="{{ ../id }}_{{ this }}" value="{{ @key }}">
+        <label for="{{ ../id }}_{{ this }}">{{ this }}</label>
     </div>
     {{/each}}
 

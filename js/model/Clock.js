@@ -3,7 +3,8 @@ var Clock = Backbone.Model.extend({
     defaults: {
         playing: false,
         timeout: null,
-        interval: null
+        interval: null,
+        tempo: null
     },
 
     start: function () {
@@ -32,6 +33,7 @@ var Clock = Backbone.Model.extend({
 
 
     setTempo: function (bpm) {
+        this.set('tempo', bpm);
         this.set('interval', 60 * 1000 / bpm);
     }
 
