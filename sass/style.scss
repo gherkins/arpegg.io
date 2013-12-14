@@ -20,44 +20,14 @@ body {
   }
 }
 
-.combos {
-  margin-top: 20px;
+.actions {
 
-  & li {
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 40px;
+  margin: 20px 0;
 
-    & button {
-      border: none;
-      width: 30px;
-      height: 30px;
-      padding: 0;
-      outline: none;
-      margin: 0;
-      background: #bdc3c7;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      &.active {
-        background: #3498db;
-      }
-    }
+  button{
+    padding: 10px 20px;
+    font-size: inherit;
   }
-}
-
-.actions {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.clear {
-  clear: both;
-}
-
-.actions {
 
   label {
     display: block;
@@ -82,6 +52,26 @@ body {
       }
     }
   }
+
+  input[type='range'] {
+    margin: 20px 0;
+    outline: none;
+    -webkit-appearance: none !important;
+    background: #eee;
+    height: 7px;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #3498db;
+    height: 30px;
+    width: 30px;
+    @include border-radius(15px);
+  }
+
+}
+
+.clear {
+  clear: both;
 }
 
 .hidden-accessible {

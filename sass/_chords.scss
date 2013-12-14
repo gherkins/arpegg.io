@@ -7,8 +7,18 @@
     float: left;
     margin: 0 20px 20px 0;
     padding: 5px;
-
     background: #eee;
+
+    select{
+      font-size: 18px;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    button{
+      padding: 5px 10px;
+      font-size: inherit;
+    }
 
     .remove {
       float: right;
