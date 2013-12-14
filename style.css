@@ -41,7 +41,7 @@ label { font-size: 12px; }
 .fretboard .controls label { display: block; line-height: 20px; height: 20px; }
 
 .chords { margin-top: 20px; }
-.chords .chord { float: left; margin-right: 20px; padding: 5px; background: #eee; }
+.chords .chord { float: left; margin: 0 20px 20px 0; padding: 5px; background: #eee; }
 .chords .chord .remove { float: right; }
 .chords .chord.active { background: #fee9b4; }
 .chords .chord input[type="checkbox"] + label { display: block; width: 40px; height: 40px; line-height: 40px; text-align: center; }
