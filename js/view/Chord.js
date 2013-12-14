@@ -107,6 +107,9 @@ var ChordView = Backbone.View.extend({
      * trigger select event on model
      */
     select: function () {
+        if (this.$el.hasClass('active')) {
+            return;
+        }
         this.model.trigger('select', this.model);
     },
 
