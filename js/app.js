@@ -132,8 +132,10 @@ $(function () {
     /**
      * tempo slider
      */
-    $('input.tempo').on('change', function () {
-        clock.set('interval', $(this).val());
-    });
+    $('input.tempo')
+        .on('change', function () {
+            clock.setTempo($(this).val());
+        })
+        .trigger('change');
 
 });
