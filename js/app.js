@@ -1,5 +1,6 @@
 $(function () {
 
+    FastClick.attach(document.body);
 
     /**
      * init Audio

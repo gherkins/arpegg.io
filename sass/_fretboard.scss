@@ -10,7 +10,7 @@
     & > span.bit {
       display: block;
       position: absolute;
-      top:11px;
+      top: 11px;
       width: inherit;
       border-bottom: 2px solid #7f8c8d;
       z-index: 10;
@@ -39,11 +39,6 @@
     background: $fretboard-bg;
     position: relative;
 
-    &:hover,
-    &.focus {
-      background: $fret-focus !important;
-    }
-
     span {
       position: relative;
       z-index: 1;
@@ -58,9 +53,9 @@
       color: #fff;
       z-index: 20;
 
-//      &.lowlight {
-//        background: rgba(231, 76, 60, 0.3);
-//      }
+      //      &.lowlight {
+      //        background: rgba(231, 76, 60, 0.3);
+      //      }
 
       &.highlight {
         background: $fret-highlight;
@@ -125,4 +120,11 @@
     }
   }
 
+}
+
+.no-touch .fret {
+  &:hover,
+  &.focus {
+    background: $fret-focus !important;
+  }
 }

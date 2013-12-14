@@ -5,9 +5,9 @@
         "vendor/underscore.js",
         "vendor/handlebars-v1.1.2.js",
         "vendor/backbone.js",
-
         "vendor/music.js",
-
+        "vendor/fastclick.js",
+        "vendor/modernizr.js",
 
         "handlebars.helper.js",
 
