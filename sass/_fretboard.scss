@@ -53,10 +53,6 @@
       color: #fff;
       z-index: 20;
 
-      //      &.lowlight {
-      //        background: rgba(231, 76, 60, 0.3);
-      //      }
-
       &.highlight {
         background: $fret-highlight;
         @include box-shadow(0px 0px 5px 1px rgba(255, 255, 190, .75))
@@ -66,6 +62,10 @@
         background: $fret-root;
       }
 
+    }
+
+    &.focus {
+      background: $fret-focus !important;
     }
 
     &[data-fret="0"] {
@@ -123,8 +123,7 @@
 }
 
 .no-touch .fret {
-  &:hover,
-  &.focus {
+  &:hover {
     background: $fret-focus !important;
   }
 }

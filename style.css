@@ -26,13 +26,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .fretboard .fret span { position: relative; z-index: 1; margin-top: 1px; height: 22px; width: 22px; display: inline-block; -webkit-border-radius: 11px; -moz-border-radius: 11px; -ms-border-radius: 11px; -o-border-radius: 11px; border-radius: 11px; font-size: 10px; line-height: 22px; text-align: center; color: #fff; z-index: 20; }
 .fretboard .fret span.highlight { background: #e67e22; -webkit-box-shadow: 0px 0px 5px 1px rgba(255, 255, 190, 0.75); -moz-box-shadow: 0px 0px 5px 1px rgba(255, 255, 190, 0.75); box-shadow: 0px 0px 5px 1px rgba(255, 255, 190, 0.75); }
 .fretboard .fret span.root { background: #e74c3c; }
+.fretboard .fret.focus { background: #f6ceab !important; }
 .fretboard .fret[data-fret="0"] { width: 41px; border-right: 4px solid #000; background: #2c3e50; }
 .fretboard .fret[data-fret="3"][data-string="3"]:after, .fretboard .fret[data-fret="5"][data-string="3"]:after, .fretboard .fret[data-fret="7"][data-string="3"]:after, .fretboard .fret[data-fret="9"][data-string="3"]:after, .fretboard .fret[data-fret="12"][data-string="1"]:after, .fretboard .fret[data-fret="12"][data-string="4"]:after, .fretboard .fret[data-fret="15"][data-string="3"]:after, .fretboard .fret[data-fret="17"][data-string="3"]:after, .fretboard .fret[data-fret="19"][data-string="3"]:after { content: ""; display: block; position: absolute; left: 50%; top: 1px; height: 18px; width: 18px; margin: 10px -10px; display: inline-block; -webkit-border-radius: 9px; -moz-border-radius: 9px; -ms-border-radius: 9px; -o-border-radius: 9px; border-radius: 9px; background: rgba(0, 0, 0, 0.1); z-index: 1; }
 .fretboard .fret[data-fret="12"][data-string="1"]:after, .fretboard .fret[data-fret="12"][data-string="4"]:after { top: 10px; }
 .fretboard .controls { margin-top: 20px; }
 .fretboard .controls label { display: block; line-height: 20px; height: 20px; }
 
-.no-touch .fret:hover, .no-touch .fret.focus { background: #f6ceab !important; }
+.no-touch .fret:hover { background: #f6ceab !important; }
 
 .chords { margin-top: 20px; }
 .chords .chord { float: left; margin: 0 20px 20px 0; padding: 5px; background: #eee; }

@@ -98,7 +98,9 @@ var FretboardView = Backbone.View.extend({
 
     showFocusRange: function () {
 
-        this.$el.find('.fret').removeClass('focus');
+        this.$el
+            .find('.fret')
+            .removeClass('focus');
 
         var string = this.model.get('focus').string;
 
@@ -106,12 +108,12 @@ var FretboardView = Backbone.View.extend({
             var focusFret = this.$el
                 .find('.fret')
                 .filter('[data-string="' + i + '"]')
-                .filter('[data-fret="' + this.model.get('focus').fret + '"]')
-//            focusFret
-//                .add(focusFret.next())
-//                .add(focusFret.next().next())
-//                .add(focusFret.prev())
-//                .add(focusFret.prev().prev())
+                .filter('[data-fret="' + this.model.get('focus').fret + '"]');
+            focusFret
+                .add(focusFret.next())
+                .add(focusFret.next().next())
+                .add(focusFret.prev())
+                .add(focusFret.prev().prev())
                 .addClass('focus');
         }
 
