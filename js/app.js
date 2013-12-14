@@ -47,7 +47,7 @@ $(function () {
     /**
      * draw frets on chord select
      */
-    chords.on('select', function (chord) {
+    chords.on('change select', function (chord) {
         //find focused pattern for current chord
         fretboard.setNotes(chord.get('notes'));
         //lights
