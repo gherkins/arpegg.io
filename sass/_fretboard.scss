@@ -39,6 +39,7 @@
     background: #fee9b4;
     position: relative;
 
+    &:hover,
     &.focus {
       background: lighten(#e67e22, 30%) !important;
     }

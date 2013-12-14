@@ -74,7 +74,7 @@ $(function () {
      * focus change
      */
     fretboard.model.on('change:focus', function () {
-        $('.chords .chord.active .select').click();
+        $('.chords .chord.active').click();
     });
 
 
@@ -134,6 +134,7 @@ $(function () {
      */
     $('input.tempo')
         .on('change', function () {
+            $('span.bpm').text($(this).val());
             clock.setTempo($(this).val());
         })
         .trigger('change');

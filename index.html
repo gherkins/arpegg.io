@@ -32,7 +32,7 @@
         <span class="stop">stop</span>
     </button>
     <div class="clear"></div>
-    <label>tempo</label>
+    <label><span class="bpm"></span> bpm</label>
     <input type="range" min="60" max="200" step="5" value="90" class="tempo">
 </div>
 
@@ -94,14 +94,6 @@
         <div class="clear"></div>
     </div>
     {{/for}}
-
-    <div class="controls">
-        <label>focus string</label>
-        <input type="range" class="focus" data-focus="string" min="1" max="6" value="6" step="1">
-        <label>focus fret</label>
-        <input type="range" class="focus" data-focus="fret" min="0" max="15" value="5" step="1">
-    </div>
-
 </script>
 
 <script type="text/javascript" src="scripts.js"></script>

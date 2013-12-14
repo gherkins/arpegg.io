@@ -7,7 +7,7 @@ var FretboardView = Backbone.View.extend({
      * event bindings
      */
     events: {
-        "change .focus": "setFocus"
+        "click .fret": "setFocus"
     },
 
     focusTimeout: null,
@@ -30,7 +30,6 @@ var FretboardView = Backbone.View.extend({
         var self = this;
         var tpl = $("#fretboard-template").html();
         this.$el.html(Handlebars.compile(tpl));
-        this.setFocus();
 
         //populate fret note-attributes
         this.$el.find('.fret').each(function () {
@@ -40,6 +39,7 @@ var FretboardView = Backbone.View.extend({
                 return self.model.get('noteNames')[index];
             });
         });
+        this.showFocusRange();
     },
 
     /**
@@ -84,24 +84,26 @@ var FretboardView = Backbone.View.extend({
      */
     setFocus: function (e) {
 
-        var focus = {
-            string: this.$el.find('.focus[data-focus="string"]').val(),
-            fret: parseInt(this.$el.find('.focus[data-focus="fret"]').val())
-        }
+        var fret = $(e.currentTarget)
+            , focus = {
+                string: parseInt(fret.data('string')),
+                fret: parseInt(fret.data('fret'))
+            }
 
+
+        this.model.set('focus', focus);
+        this.showFocusRange();
+        this.showDots();
+
+    },
+
+    showFocusRange: function () {
         this.$el
             .find('.fret')
             .removeClass('focus')
-            .filter('[data-string="' + focus.string + '"]')
-            .filter('[data-fret="' + focus.fret + '"]')
+            .filter('[data-string="' + this.model.get('focus').string + '"]')
+            .filter('[data-fret="' + this.model.get('focus').fret + '"]')
             .addClass('focus');
-
-        var self = this;
-        clearTimeout(this.focusTimeout);
-        this.focusTimeout = setTimeout(function () {
-            self.model.set('focus', focus);
-        }, 500);
-
     },
 
 
