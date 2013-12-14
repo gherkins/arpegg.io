@@ -65,7 +65,8 @@ $(function () {
         fretboard.showDots();
     });
 
-    chords.on('change', function (chord) {
+    //save on chords change add remove
+    chords.on('add change remove', function (chord) {
         loadsave.save();
     });
 
