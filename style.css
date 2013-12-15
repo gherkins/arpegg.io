@@ -75,3 +75,6 @@ a, input, button { -ms-touch-action: none !important; }
 .clear { clear: both; }
 
 .hidden-accessible, .chords .chord input[type="checkbox"] { position: absolute !important; left: -9999px; clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px); }
+
+.share { margin-top: 40px; }
+.share a { color: #3498db; text-decoration: none; }
