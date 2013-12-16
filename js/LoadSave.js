@@ -22,7 +22,7 @@ var LoadSave = Backbone.Model.extend({
                 var chord = $('.chord.active');
                 chord.find('select').val(this.key);
                 $.each(this.intervals, function (key, val) {
-                    chord.find('input#' + val)
+                    chord.find('input[data-interval="' + val + '"]')
                         .prop('checked', true)
                         .trigger('change');
                 });
@@ -67,7 +67,7 @@ var LoadSave = Backbone.Model.extend({
             }
 
             $(this).find('input:checked').each(function () {
-                chord.intervals.push($(this).attr('id'));
+                chord.intervals.push($(this).data('interval'));
             });
 
             data.chords.push(chord);

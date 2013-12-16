@@ -2,7 +2,8 @@ var chords
     , clock
     , audio
     , loadsave
-    , fretboard;
+    , fretboard
+    , domid = 0;
 
 $(function () {
 
@@ -51,7 +52,7 @@ $(function () {
         new ChordView({
             model: chord,
             container: $('.chords'),
-            id: chords.length
+            domid: domid++
         });
     });
 

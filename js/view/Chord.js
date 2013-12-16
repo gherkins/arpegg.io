@@ -31,7 +31,7 @@ var ChordView = Backbone.View.extend({
      */
     initialize: function (options) {
         this.container = options.container;
-        this.id = options.id; //dom id for labels
+        this.domid = options.domid; //dom id for labels
         this.render();
 
         this.listenTo(this.model, 'select', this.activate);
@@ -63,7 +63,7 @@ var ChordView = Backbone.View.extend({
                     'major seventh': '7',
                     'octave': '12'
                 },
-                id: this.id
+                domid: this.domid
             }))
             .appendTo(this.container);
 
@@ -99,6 +99,8 @@ var ChordView = Backbone.View.extend({
      * remove view
      */
     kill: function () {
+        this.unbind();
+        this.stopListening();
         this.model.destroy();
         this.remove();
     },

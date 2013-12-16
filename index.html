@@ -74,8 +74,8 @@
     <div class="clear"></div>
     {{#each intervals}}
     <div class="option">
-        <input class="interval" type="checkbox" id="{{ ../id }}_{{ this }}" value="{{ @key }}">
-        <label for="{{ ../id }}_{{ this }}">{{ this }}</label>
+        <input class="interval" type="checkbox" id="{{ ../domid }}_{{ this }}" value="{{ @key }}" data-interval="{{ this }}">
+        <label for="{{ ../domid }}_{{ this }}">{{ this }}</label>
     </div>
     {{/each}}
 
