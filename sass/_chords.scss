@@ -19,6 +19,11 @@
     button{
       padding: 5px 10px;
       font-size: inherit;
+
+      &.play{
+        margin-top: 10px;
+      }
+
     }
 
     .remove {
@@ -63,6 +68,7 @@
   ul.ticks {
     width: 100%;
     height: 20px;
+    margin-bottom: 10px;
     li {
       text-align: center;
       width: 25%;

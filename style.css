@@ -342,13 +342,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .chords .chord { float: left; margin: 0 20px 20px 0; padding: 5px; background: #eee; }
 .chords .chord select { font-size: 1.2em; border: none; margin-bottom: 10px; width: auto; }
 .chords .chord button { padding: 5px 10px; font-size: inherit; }
+.chords .chord button.play { margin-top: 10px; }
 .chords .chord .remove { float: right; }
 .chords .chord.active { background: #fee9b4; }
 .chords .chord input[type="checkbox"] + label { display: block; width: 40px; height: 40px; line-height: 40px; text-align: center; }
 .chords .chord input[type="checkbox"]:checked + label { font-weight: bold; background: #2ba6cb; color: #fff; }
 .chords .chord .option { float: left; }
 .chords .chord .option:nth-child(5n+0) { clear: both; }
-.chords ul.ticks { width: 100%; height: 20px; }
+.chords ul.ticks { width: 100%; height: 20px; margin-bottom: 10px; }
 .chords ul.ticks li { text-align: center; width: 25%; display: block; float: left; height: 10px; }
 .chords ul.ticks li span { display: inline-block; width: 10px; height: 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; background: #ccc; }
 .chords ul.ticks li.active span { background: #2ba6cb; }
