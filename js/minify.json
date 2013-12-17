@@ -8,7 +8,6 @@
         "vendor/music.js",
         "vendor/fastclick.js",
         "vendor/modernizr.js",
-        "vendor/jquery.base64.min.js",
         "vendor/jquery.urlshortener.js",
 
         "vendor/foundation/foundation.js",

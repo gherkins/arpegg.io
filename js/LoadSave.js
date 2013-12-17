@@ -9,7 +9,7 @@ var LoadSave = Backbone.Model.extend({
         var data = null;
 
         try {
-            data = JSON.parse($.base64.decode(decodeURIComponent(hash)));
+            data = JSON.parse(decodeURIComponent(hash));
 
             //set tempo
             $('.tempo').val(data.tempo).trigger('change');
@@ -70,7 +70,6 @@ var LoadSave = Backbone.Model.extend({
 
 
         data = JSON.stringify(data);
-        data = $.base64.encode(data);
 
         var a = document.createElement('a');
         a.href = location.href;
