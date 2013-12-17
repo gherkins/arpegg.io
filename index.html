@@ -10,20 +10,6 @@
 
 <div class="wrap">
 
-    <div class="social">
-        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fweb-development.cc%2Farpegg.io%2F&amp;send=false&amp;layout=button_count&amp;width=135&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:135px; height:21px;" allowTransparency="true"></iframe>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://web-development.cc/arpegg.io/" data-hashtags="guitar">Tweet</a>
-        <script>!function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');</script>
-    </div>
-
     <h1>arpegg.io</h1>
 
     <div class="fretboard"></div>
@@ -46,14 +32,33 @@
 
     <div class="clear"></div>
 
-    <p class="share">
+    <button class="share">share this playback</button>
+
+</div>
+
+
+<div id="share" class="reveal-modal small" data-reveal>
+    <h2>Share this playback</h2>
+
+    <p>
+        to share this playback, just copy this URL:
+    </p>
+    <p>&nbsp;</p>
+    <p>
+        <input type="text" class="url" readonly selected>
+    </p>
+
+    <p>
         share this playback on
         <a class="fb" href="#" data-href="http://www.facebook.com/sharer.php" target="_blank">facebook</a>
         or
         <a class="twitter" href="#" data-href="https://twitter.com/intent/tweet" target="_blank">twitter</a>!
     </p>
 
+    <a class="close-reveal-modal">&#215;</a>
 </div>
+
+
 <script id="chord-template" type="text/x-handlebars-template">
 
     <ul class="ticks" data-bar="1">
@@ -74,7 +79,8 @@
     <div class="clear"></div>
     {{#each intervals}}
     <div class="option">
-        <input class="interval" type="checkbox" id="{{ ../domid }}_{{ this }}" value="{{ @key }}" data-interval="{{ this }}">
+        <input class="interval" type="checkbox" id="{{ ../domid }}_{{ this }}" value="{{ @key }}"
+               data-interval="{{ this }}">
         <label for="{{ ../domid }}_{{ this }}">{{ this }}</label>
     </div>
     {{/each}}

@@ -32,6 +32,9 @@ var LoadSave = Backbone.Model.extend({
             fretboard.showFocusRange();
             fretboard.showDots();
 
+            //clear hash
+            window.location.hash = '';
+
             return true;
 
         }
@@ -43,15 +46,6 @@ var LoadSave = Backbone.Model.extend({
     },
 
     save: function () {
-        var self = this;
-        clearTimeout(this.get('timeout'));
-        var timeout = setTimeout(function () {
-            self.doSave();
-        }, 100);
-        this.set('timeout', timeout);
-    },
-
-    doSave: function () {
         var data = {
             chords: [],
             tempo: clock.get('tempo'),
@@ -77,18 +71,12 @@ var LoadSave = Backbone.Model.extend({
 
         data = JSON.stringify(data);
         data = $.base64.encode(data);
-        window.location.hash = data;
 
-        var fbLink = $('.share a.fb').data('href');
-        fbLink += "?u=" + encodeURIComponent(window.location.href);
-        fbLink += "&t=" + encodeURIComponent("check out this awesome playback for guitar practice");
-        $('.share a.fb').attr('href', fbLink);
+        var a = document.createElement('a');
+        a.href = location.href;
+        a.hash = data;
 
-        var twitterLink = $('.share a.twitter').data('href');
-        twitterLink += "?url=" + encodeURIComponent(window.location.href);
-        twitterLink += "&t=" + encodeURIComponent("check out this awesome playback for guitar practice");
-        $('.share a.twitter').attr('href', twitterLink);
-
+        return a.href;
     }
 
 });

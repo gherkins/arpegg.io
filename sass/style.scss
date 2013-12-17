@@ -1,17 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
+@import "foundation/variables";
+@import "foundation/components/global";
+@import "foundation/components/visibility";
+@import "foundation/components/buttons";
+@import "foundation/components/reveal";
+@import "foundation/components/forms";
 @import "compass/reset";
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 @import "compass/css3/opacity";
-
-//@import "compass/css3/transition";
 
 $fretboard-bg: #fee9b4;
 $fret-focus: #f6ceab;
 $fret-highlight: #e67e22;
 $fret-root: #e74c3c;
 
-$ui-active: #3498db;
+$ui-active: #2ba6cb;
 
 @import "_fretboard";
 @import "_chords";
@@ -25,28 +29,20 @@ h1 {
   font-size: 2em;
 }
 
+h2{
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
 .wrap {
   width: 960px;
   margin: 0 auto;
   padding: 20px 0;
 }
 
-.social {
-  float: right;
-  iframe {
-    float: left;
-    margin-bottom: 20px;
-  }
-}
-
 .actions {
 
   margin: 20px 0;
-
-  button {
-    padding: 10px 20px;
-    font-size: inherit;
-  }
 
   label {
     display: inline-block;
@@ -110,10 +106,33 @@ a, input, button {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-.share {
-  margin-top: 40px;
-  a {
-    color: $ui-active;
-    text-decoration: none;
+//hover states
+.no-touch {
+  button:hover {
+    cursor: pointer;
+    @include opacity(0.7);
   }
+
+  input[type="range"]:hover {
+    cursor: pointer;
+  }
+
+  .fret:hover {
+    cursor: pointer;
+    background: $fret-focus !important;
+  }
+
+  .chord {
+
+    label:hover {
+      background: lighten($ui-active, 40%);
+      cursor: pointer;
+    }
+
+    select:hover {
+      cursor: pointer;
+    }
+
+  }
+
 }

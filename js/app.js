@@ -66,11 +66,6 @@ $(function () {
         fretboard.showDots();
     });
 
-    //save on chords change add remove
-    chords.on('add change remove', function (chord) {
-        loadsave.save();
-    });
-
     /**
      * playback chord
      */
@@ -99,8 +94,6 @@ $(function () {
         $('.chords .chord.active')
             .removeClass('active')
             .click();
-
-        loadsave.save();
     });
 
 
@@ -162,8 +155,46 @@ $(function () {
         .on('change', function () {
             $('span.bpm').text($(this).val());
             clock.setTempo($(this).val());
-            loadsave.save();
         })
         .trigger('change');
+
+
+    /**
+     * share short url
+     */
+
+    $.urlShortener.settings.apiKey = 'AIzaSyDbzzXiRyDKWmf6AXCkhUHy7B0NTJ46J54';
+
+    $('button.share').on('click', function () {
+
+        $.urlShortener({
+            longUrl: loadsave.save(),
+            success: function (shortUrl) {
+                $('#share').find('input').val(shortUrl);
+
+                var fbLink = $('#share a.fb').data('href');
+                fbLink += "?u=" + encodeURIComponent(shortUrl);
+                fbLink += "&t=" + encodeURIComponent("check out this awesome playback for guitar practice");
+                $('#share a.fb').attr('href', fbLink);
+
+                var twitterLink = $('#share a.twitter').data('href');
+                twitterLink += "?url=" + encodeURIComponent(shortUrl);
+                twitterLink += "&text=" + encodeURIComponent("check out this awesome playback for guitar practice");
+                $('#share a.twitter').attr('href', twitterLink);
+
+
+                $('#share').foundation('reveal', 'open');
+
+            },
+            error: function (err) {
+//                alert(JSON.stringify(err));
+            }
+        });
+    });
+
+    $('.close-reveal-modal').on('click', function () {
+        $('#share').foundation('reveal', 'close');
+    });
+
 
 });

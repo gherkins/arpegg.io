@@ -31,7 +31,7 @@
 
   .fret {
     float: left;
-    width: 59px;
+    width: 61px;
     border-right: 2px solid #000;
     height: 24px;
     line-height: 20px;
@@ -69,7 +69,7 @@
     }
 
     &[data-fret="0"] {
-      width: 41px;
+      width: 45px;
       border-right: 4px solid #000;
       background: #2c3e50;
     }
@@ -120,10 +120,4 @@
     }
   }
 
-}
-
-.no-touch .fret {
-  &:hover {
-    background: $fret-focus !important;
-  }
 }
