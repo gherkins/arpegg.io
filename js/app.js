@@ -163,6 +163,10 @@ $(function () {
      * share short url
      */
 
+    $(document)
+        .foundation()
+        .foundation('reveal', {closeOnBackgroundClick: true});
+
     $.urlShortener.settings.apiKey = 'AIzaSyDbzzXiRyDKWmf6AXCkhUHy7B0NTJ46J54';
 
     $('button.share').on('click', function () {
@@ -183,7 +187,7 @@ $(function () {
                 $('#share a.twitter').attr('href', twitterLink);
 
 
-                $('#share').foundation('reveal', 'open');
+                $("#share").foundation('reveal', 'open');
 
             },
             error: function (err) {
