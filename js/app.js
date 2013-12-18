@@ -186,6 +186,10 @@ $(function () {
                 twitterLink += "&text=" + encodeURIComponent("check out this awesome playback for guitar practice");
                 $('#share a.twitter').attr('href', twitterLink);
 
+                var gPLusLink = $('#share a.g-plus').data('href');
+                gPLusLink += "?url=" + encodeURIComponent(shortUrl);
+                $('#share a.g-plus').attr('href', gPLusLink);
+
 
                 $("#share").foundation('reveal', 'open');
 
