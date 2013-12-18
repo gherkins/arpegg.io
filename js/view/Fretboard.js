@@ -46,11 +46,12 @@ var FretboardView = Backbone.View.extend({
      * draw all dots for current activeFrets
      */
     showDots: function () {
+
         var self = this;
         this.$el.find('.fret span').fadeOut('fast');
 
         $.each(this.model.get('activeFrets'), function () {
-            self.showDot(this, '');
+            self.showDot(this);
         });
     },
 
