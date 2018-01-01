@@ -1,9 +1,9 @@
 var Audio = Backbone.Model.extend({
 
     initialize: function () {
-        this.set('context', new webkitAudioContext());
+        this.set('context', new AudioContext());
 
-        this.set('masterVolume', this.get('context').createGainNode());
+        this.set('masterVolume', this.get('context').createGain());
         this.get('masterVolume').connect(this.get('context').destination);
         this.loadAudio('audio/piano-a.wav', 'pianoBuffer');
         this.loadAudio('audio/click1.wav', 'clickBuffer');
