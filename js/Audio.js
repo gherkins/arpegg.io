@@ -72,7 +72,7 @@ var Audio = Backbone.Model.extend({
             sourceNode.buffer = self.get('pianoBuffer');
             sourceNode.connect(self.get('masterVolume'));
             sourceNode.playbackRate.value = playbackrate;
-            sourceNode.noteOn(0);
+            sourceNode.start(0);
         });
 
     },
@@ -87,7 +87,7 @@ var Audio = Backbone.Model.extend({
         var sourceNode = this.get('context').createBufferSource();
         sourceNode.buffer = this.get('clickBuffer');
         sourceNode.connect(this.get('masterVolume'));
-        sourceNode.noteOn(0);
+        sourceNode.start(0);
     },
 
 
