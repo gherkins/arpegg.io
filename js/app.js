@@ -170,34 +170,9 @@ $(function () {
     $.urlShortener.settings.apiKey = 'AIzaSyDbzzXiRyDKWmf6AXCkhUHy7B0NTJ46J54';
 
     $('button.share').on('click', function () {
-
-        $.urlShortener({
-            longUrl: loadsave.save(),
-            success: function (shortUrl) {
-                $('#share').find('input').val(shortUrl);
-
-                var fbLink = $('#share a.fb').data('href');
-                fbLink += "?u=" + encodeURIComponent(shortUrl);
-                fbLink += "&t=" + encodeURIComponent("check out this awesome playback for guitar practice");
-                $('#share a.fb').attr('href', fbLink);
-
-                var twitterLink = $('#share a.twitter').data('href');
-                twitterLink += "?url=" + encodeURIComponent(shortUrl);
-                twitterLink += "&text=" + encodeURIComponent("check out this awesome playback for guitar practice");
-                $('#share a.twitter').attr('href', twitterLink);
-
-                var gPLusLink = $('#share a.g-plus').data('href');
-                gPLusLink += "?url=" + encodeURIComponent(shortUrl);
-                $('#share a.g-plus').attr('href', gPLusLink);
-
-
-                $("#share").foundation('reveal', 'open');
-
-            },
-            error: function (err) {
-//                alert(JSON.stringify(err));
-            }
-        });
+        var shortUrl = loadsave.save();
+        $('#share').find('input').val(shortUrl);
+        $("#share").foundation('reveal', 'open');
     });
 
     $('.close-reveal-modal').on('click', function () {
